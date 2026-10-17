@@ -118,7 +118,7 @@ Optional authentication is an Authorization: Bearer header. Use HTTPS; HTTP is a
 
 Keys are stored in the application's **local backend database**, not published in this catalog or returned by entity APIs. This is not a claim of encrypted credential storage. Protect the app data directory. Cloud prompts and search queries go to the configured third party; review its privacy, retention and billing terms. Do not submit keys in GitHub issues.
 
-These connection additions are in current OpenClaude source; the earlier v0.1.1 installer predates them.
+These connection additions are included in [OpenClaude v0.1.2 — download the installer or portable ZIP](https://github.com/gutsofpratik/OpenClaude/releases/tag/v0.1.2).
 
 ## Performance and troubleshooting
 
