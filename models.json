@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "verifiedSourceDate": "2026-10-17",
+  "models": [
+    {
+      "id": "bonsai-2-27b",
+      "name": "Bonsai 2 27B",
+      "publisherModelCard": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf",
+      "downloadRepository": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf",
+      "revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+      "license": "apache-2.0",
+      "openClaudeValidation": "user-reported use; no published reproducible benchmark",
+      "files": [
+        {
+          "filename": "Ternary-Bonsai-2-27B-PQ2_0.gguf",
+          "bytes": 7206168928,
+          "sha256": "3907dc1658db1f78a9826bf8d5bcb8dc65db0d466388937af57f2294fae62ec1",
+          "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf/resolve/b072e1d3b35a0a630cece372c2127528e0994386/Ternary-Bonsai-2-27B-PQ2_0.gguf?download=true"
+        },
+        {
+          "filename": "Ternary-Bonsai-2-27B-PTQ1_0.gguf",
+          "bytes": 5946648928,
+          "sha256": "53107f530aa52eb00912263ab1ee29bd199261c87cd7b4ad4ca1318c1fe33ee3",
+          "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf/resolve/b072e1d3b35a0a630cece372c2127528e0994386/Ternary-Bonsai-2-27B-PTQ1_0.gguf?download=true"
+        },
+        {
+          "filename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+          "bytes": 629246976,
+          "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903",
+          "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf/resolve/b072e1d3b35a0a630cece372c2127528e0994386/Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf?download=true"
+        }
+      ],
+      "use": "Reasoning and tools with compact weights; specialized Prism runtime",
+      "context": 262144,
+      "thinking": true,
+      "vision": "Requires matching mmproj and runtime support",
+      "hardware": {
+        "systemRamGB": "16 minimum planning target; 32 preferred",
+        "gpuVramGB": "8–12 for modest text contexts; not a guarantee",
+        "startingContext": 8192,
+        "estimateOnly": true
+      }
+    },
+    {
+      "id": "qwen35-9b",
+      "name": "Qwen3.5 9B",
+      "publisherModelCard": "https://huggingface.co/Qwen/Qwen3.5-9B",
+      "downloadRepository": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF",
+      "revision": "3885219b6810b007914f3a7950a8d1b469d598a5",
+      "license": "apache-2.0",
+      "openClaudeValidation": "user-reported use; no published reproducible benchmark",
+      "files": [
+        {
+          "filename": "Qwen3.5-9B-Q4_K_M.gguf",
+          "bytes": 5680522464,
+          "sha256": "03b74727a860a56338e042c4420bb3f04b2fec5734175f4cb9fa853daf52b7e8",
+          "url": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/resolve/3885219b6810b007914f3a7950a8d1b469d598a5/Qwen3.5-9B-Q4_K_M.gguf?download=true"
+        }
+      ],
+      "use": "Balanced starting point for chat, tools, code, and images",
+      "context": 262144,
+      "thinking": true,
+      "vision": "Requires matching mmproj for GGUF",
+      "hardware": {
+        "systemRamGB": "16–32",
+        "gpuVramGB": "8–12 for Q4 and modest context",
+        "startingContext": 8192,
+        "estimateOnly": true
+      }
+    },
+    {
+      "id": "qwen35-4b",
+      "name": "Qwen3.5 4B",
+      "publisherModelCard": "https://huggingface.co/Qwen/Qwen3.5-4B",
+      "downloadRepository": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF",
+      "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+      "license": "apache-2.0",
+      "openClaudeValidation": "candidate; not end-to-end validated",
+      "files": [
+        {
+          "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+          "bytes": 2740937888,
+          "sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+          "url": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/e87f176479d0855a907a41277aca2f8ee7a09523/Qwen3.5-4B-Q4_K_M.gguf?download=true"
+        }
+      ],
+      "use": "Lower memory and quicker local interaction; verify complex tool reliability",
+      "context": 262144,
+      "thinking": true,
+      "vision": "Requires matching mmproj for GGUF",
+      "hardware": {
+        "systemRamGB": "8–16",
+        "gpuVramGB": "4–6 for Q4 text and modest context",
+        "startingContext": 8192,
+        "estimateOnly": true
+      }
+    },
+    {
+      "id": "qwen3-coder-30b",
+      "name": "Qwen3 Coder 30B A3B Instruct",
+      "publisherModelCard": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "downloadRepository": "https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+      "revision": "b17cb02dd882d5b6ab62fc777ad2995f19668350",
+      "license": "apache-2.0",
+      "openClaudeValidation": "candidate; not end-to-end validated",
+      "files": [
+        {
+          "filename": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+          "bytes": 18556689568,
+          "sha256": "fadc3e5f8d42bf7e894a785b05082e47daee4df26680389817e2093056f088ad",
+          "url": "https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF/resolve/b17cb02dd882d5b6ab62fc777ad2995f19668350/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf?download=true"
+        }
+      ],
+      "use": "Coding and repository work",
+      "context": 262144,
+      "thinking": false,
+      "vision": false,
+      "hardware": {
+        "systemRamGB": "32–64",
+        "gpuVramGB": "24+ for Q4 with modest context; 16 needs offload",
+        "startingContext": 8192,
+        "estimateOnly": true
+      }
+    },
+    {
+      "id": "gpt-oss-20b",
+      "name": "gpt-oss 20B",
+      "publisherModelCard": "https://huggingface.co/openai/gpt-oss-20b",
+      "downloadRepository": "https://huggingface.co/openai/gpt-oss-20b",
+      "revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+      "license": "apache-2.0",
+      "openClaudeValidation": "candidate; not end-to-end validated",
+      "files": [],
+      "use": "Text reasoning and tools through a Harmony-compatible engine",
+      "context": 131072,
+      "thinking": true,
+      "vision": false,
+      "hardware": {
+        "systemRamGB": "32 preferred",
+        "gpuVramGB": "16+ with supported native MXFP4; varies by engine",
+        "startingContext": 8192,
+        "estimateOnly": true
+      }
+    }
+  ]
+}
