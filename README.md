@@ -1,6 +1,6 @@
-# OpenCloud Models
+# Horizon Models
 
-A practical model guide for [OpenClaude](https://github.com/gutsofpratik/OpenClaude): what to download, which runtime to choose, and how to size your computer. This repository contains **documentation and a machine-readable catalog, not model weights**. OpenCloud is the requested repository name; the application is named OpenClaude.
+A practical model guide for [Horizon](https://github.com/gutsofpratik/Horizon): what to download, which runtime to choose, and how to size your computer. This repository contains **documentation and a machine-readable catalog, not model weights**. The application is Horizon; this companion repository covers its model choices and runtime requirements.
 
 Source links and file metadata checked **17 October 2026**. This is a curated starting list, not an exhaustive compatibility promise. “Best” depends on memory, workload, runtime, context and latency. New releases may change the choices below.
 
@@ -15,7 +15,7 @@ Source links and file metadata checked **17 October 2026**. This is a curated st
 | Text reasoning with Harmony support | gpt-oss 20B | Use a provider/runtime that implements its response format correctly |
 | No suitable local hardware | Cloud model connection | OpenRouter or another compatible API; internet, provider account and potential usage charges |
 
-These are workload recommendations, not a leaderboard or measured OpenClaude speed ranking. Bonsai and Qwen3.5 9B have user-reported use in OpenClaude; this repository does not yet contain reproducible end-to-end benchmarks. Other entries are candidates based on upstream documentation, not certified integrations.
+These are workload recommendations, not a leaderboard or measured Horizon speed ranking. Bonsai and Qwen3.5 9B have user-reported use in Horizon; this repository does not yet contain reproducible end-to-end benchmarks. Other entries are candidates based on upstream documentation, not certified integrations.
 
 ## System planning
 
@@ -39,7 +39,7 @@ For full GPU offload, use a compatible GPU runtime and enough free VRAM. For CPU
 
 “Bonsai 227B” refers here to **Bonsai 2 27B**, not a 227-billion-parameter model. The publisher supplies PTQ1_0 (5.95 GB), PQ2_0 (7.21 GB), and an optional Q8 vision projector (0.63 GB). Use the **Prism llama.cpp fork**, not stock llama.cpp, for these ternary files. Follow its current compatibility guidance rather than renaming files to another quantization type.
 
-Thinking and a 262K architectural context are documented upstream. Image support also needs the matching projector and a compatible OpenClaude vision path. These features are not established just by loading text weights. Choose PTQ1_0 when memory is tight; compare PQ2_0 on your hardware. OpenClaude's earlier 60K configuration was one machine's choice, not a recommended default for everyone.
+Thinking and a 262K architectural context are documented upstream. Image support also needs the matching projector and a compatible Horizon vision path. These features are not established just by loading text weights. Choose PTQ1_0 when memory is tight; compare PQ2_0 on your hardware. Horizon's earlier 60K configuration was one machine's choice, not a recommended default for everyone.
 
 Sources: [publisher model card](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf), [Prism runtime/setup reference](https://github.com/PrismML-Eng/Bonsai-demo), [runtime binaries](https://github.com/PrismML-Eng/llama.cpp/releases).
 
@@ -55,11 +55,11 @@ A smaller starting choice when memory or latency matters more than peak task qua
 
 ### Qwen3 Coder 30B A3B Instruct
 
-The [publisher model card](https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct) documents 30.5B total parameters with 3.3B active, 262,144 native context, coding/tool-use focus and **non-thinking-only** behavior. It is text-only. Active parameters affect compute; they do not mean only 3.3B parameters need storage. The [Unsloth GGUF conversion](https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF) is a third-party option. Use a compatible recent runtime and its actual tool-call template. This catalog has not validated the complete OpenClaude tool loop for this model.
+The [publisher model card](https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct) documents 30.5B total parameters with 3.3B active, 262,144 native context, coding/tool-use focus and **non-thinking-only** behavior. It is text-only. Active parameters affect compute; they do not mean only 3.3B parameters need storage. The [Unsloth GGUF conversion](https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF) is a third-party option. Use a compatible recent runtime and its actual tool-call template. This catalog has not validated the complete Horizon tool loop for this model.
 
 ### gpt-oss 20B
 
-The [official model card and download repository](https://huggingface.co/openai/gpt-oss-20b) describe a text-only reasoning/tool model with native MXFP4 and a 16 GB memory deployment target. **Harmony formatting is required.** A backend that merely opens a Safetensors file is not sufficient. Prefer a current compatible Ollama/LM Studio/provider path until you have validated your chosen built-in engine's formatting and quantization support. Thinking effort is provider dependent; image input is not supported by this model. No OpenClaude hardware benchmark is claimed here.
+The [official model card and download repository](https://huggingface.co/openai/gpt-oss-20b) describe a text-only reasoning/tool model with native MXFP4 and a 16 GB memory deployment target. **Harmony formatting is required.** A backend that merely opens a Safetensors file is not sufficient. Prefer a current compatible Ollama/LM Studio/provider path until you have validated your chosen built-in engine's formatting and quantization support. Thinking effort is provider dependent; image input is not supported by this model. No Horizon hardware benchmark is claimed here.
 
 ## Revision-pinned file downloads
 
@@ -93,18 +93,18 @@ Links below point to the exact repository revision checked for this catalog. Fil
 
 For Qwen vision projectors, use the **Files** tab of the same GGUF repository; choose the matching mmproj and budget additional memory. For Safetensors, download the **whole checkpoint directory**, including every shard, tokenizer, configuration and required processor files. One Safetensors shard is not a complete model. Read upstream requirements before enabling remote Python code.
 
-## Use with OpenClaude
+## Use with Horizon
 
 1. **Desktop built-in loader:** Settings → Models → Choose model file (GGUF) or choose the complete checkpoint folder. Select a compatible runtime, context and GPU placement. For Bonsai ternary, configure Prism first. Choose the model in chat; sending the first message triggers loading. Hardware settings remain desktop features.
 2. **Ollama:** Download a supported model through Ollama, add its connection under Settings → Models, test it, then choose the model in chat. Ollama controls its model configuration. Desktop can also import downloaded Ollama weights where supported.
-3. **LM Studio:** Load a compatible model there, enable its local OpenAI-compatible server, add the LM Studio preset in OpenClaude, test and select it. Provider controls context and placement.
+3. **LM Studio:** Load a compatible model there, enable its local OpenAI-compatible server, add the LM Studio preset in Horizon, test and select it. Provider controls context and placement.
 4. **Cloud:** Add the OpenRouter preset or a custom OpenAI-compatible base URL and API key. Use provider model IDs. Manual IDs support endpoints without a /models listing. Selecting an API model does not download weights or consume local GPU inference memory.
 
-The model's native capability, engine support and OpenClaude integration must all agree. A tool-capable checkpoint does not automatically give it unrestricted terminal/computer access. Tools must be available, enabled, and correctly called. Vision needs actual image input and compatible inference, not only a model label. A non-thinking model will not gain reasoning controls from a checkbox.
+The model's native capability, engine support and Horizon integration must all agree. A tool-capable checkpoint does not automatically give it unrestricted terminal/computer access. Tools must be available, enabled, and correctly called. Vision needs actual image input and compatible inference, not only a model label. A non-thinking model will not gain reasoning controls from a checkbox.
 
 ## Cloud models and external search
 
-OpenClaude's source supports **OpenAI-compatible Chat Completions with SSE streaming**, including OpenRouter at https://openrouter.ai/api/v1. In Settings → Models, add a connection, enter a key, test model discovery and choose a model in chat. Put exact model IDs in the optional list for APIs without /models. Such a test confirms configuration only; an actual generation is needed to verify credentials. “Omni Router” is not treated as a verified service name; if you mean a different router, use its documented compatible endpoint. Native Anthropic Messages, Responses-only and proprietary APIs require a separate adapter; arbitrary APIs are not automatically compatible. See [OpenRouter documentation](https://openrouter.ai/docs/quickstart).
+Horizon's source supports **OpenAI-compatible Chat Completions with SSE streaming**, including OpenRouter at https://openrouter.ai/api/v1. In Settings → Models, add a connection, enter a key, test model discovery and choose a model in chat. Put exact model IDs in the optional list for APIs without /models. Such a test confirms configuration only; an actual generation is needed to verify credentials. “Omni Router” is not treated as a verified service name; if you mean a different router, use its documented compatible endpoint. The current application also implements native Anthropic Messages, OpenAI Responses and other provider adapters; select the matching protocol/preset. Arbitrary APIs are not automatically compatible. See [OpenRouter documentation](https://openrouter.ai/docs/quickstart).
 
 In Settings → Capabilities → Web search, choose **Brave Search API**, **Tavily**, SearXNG, DuckDuckGo, or a custom API. A model API key and a search API key are separate credentials. Search-provider settings are used by the agent's existing web-search tools; no browser extension is required.
 
@@ -116,9 +116,9 @@ A custom search adapter must accept GET parameters q, limit, page, time_range, l
 
 Optional authentication is an Authorization: Bearer header. Use HTTPS; HTTP is allowed only for loopback development endpoints. Services with different contracts need a translation adapter. Brave supports limited paging; Tavily returns up to 20 results per query and needs new queries for broader coverage. Provider quotas and readable-page failures still apply. See [Brave API docs](https://api-dashboard.search.brave.com/app/documentation/web-search) and [Tavily API docs](https://docs.tavily.com/documentation/api-reference/endpoint/search).
 
-Keys are stored in the application's **local backend database**, not published in this catalog or returned by entity APIs. This is not a claim of encrypted credential storage. Protect the app data directory. Cloud prompts and search queries go to the configured third party; review its privacy, retention and billing terms. Do not submit keys in GitHub issues.
+Saved provider keys use the application's encrypted credential vault; Windows protects its vault key with DPAPI. Keys are not published in this catalog. Protect the app data directory and credential vault together. Cloud prompts and search queries go to the configured third party; review its privacy, retention and billing terms. Do not submit keys in GitHub issues.
 
-These connection additions are included in [OpenClaude v0.1.2 — download the installer or portable ZIP](https://github.com/gutsofpratik/OpenClaude/releases/tag/v0.1.2).
+Get application downloads from [Horizon releases](https://github.com/gutsofpratik/Horizon/releases/latest). News and image search require configured SearXNG. Audio transcription uses a separately configured compatible provider/model; a loaded chat model does not automatically supply it.
 
 ## Performance and troubleshooting
 
